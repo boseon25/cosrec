@@ -1,0 +1,3 @@
+item=Cleansing_Cleansing Foam Gel  MensCare_BodyCare  Cleansing_Lip Eye Remover  Cleansing_Oil Night
+divide=50
+progress=3-11

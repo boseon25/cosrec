@@ -2,9 +2,6 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import time
 from bs4 import BeautifulSoup
-import pyautogui
-import csv
-import pandas as pd
 
 #html parsing
 def fetch_full_html(url, output_path="full_page.html"):
@@ -16,13 +13,7 @@ def fetch_full_html(url, output_path="full_page.html"):
 
     try:
         driver.get(url)
-        
-        pyautogui.moveTo(1101, 1354, duration=1)  #Physical coordinates
-        time.sleep(10)  #Time to go beyond security
-        pyautogui.scroll(-1145)
-        time.sleep(4)  #Page loading time
-        pyautogui.leftClick()
-        time.sleep(0.5)  #Click time
+        time.sleep(15)  
         html = driver.page_source
 
         return html
@@ -78,3 +69,7 @@ def parse_product_info(html, Category):
         final_info.append(i)
 
     return final_info, Product_Ingredients
+
+def split_list_equally(lst, n):
+        k, m = divmod(len(lst), n)
+        return [lst[i*k + min(i, m):(i+1)*k + min(i+1, m)] for i in range(n)]
