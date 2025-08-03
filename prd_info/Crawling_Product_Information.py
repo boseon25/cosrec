@@ -1,4 +1,4 @@
-from selenium import webdriver
+﻿from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import time
 from bs4 import BeautifulSoup
@@ -8,7 +8,7 @@ import pandas as pd
 import Crawling_Product_Information_Preparation as CPI
 import os
 
-filepath = r'C:\Users\leeks\my_git\mango\prd_info\Set_default.txt' #User editable section
+filepath = r'C:\Users\user\Desktop\Github\cosrec\prd_info\Set_default.txt' #User editable section
 os.makedirs(os.path.dirname(filepath), exist_ok=True)  
 
 # Dictionary storage function
@@ -41,9 +41,9 @@ if len(Starting_point) < 2:
 
 # Crawling function
 def Collecting_data(My_part, divide, Starting_point=Starting_point):
-    os.chdir(r'C:\Users\leeks\my_git\mango')  #User editable section
+    os.chdir(r'C:\Users\user\Desktop\Github\cosrec')  #User editable section
     files = os.listdir('url')
-    os.chdir(r'C:\Users\leeks\my_git\mango\url')  #User editable section
+    os.chdir(r'C:\Users\user\Desktop\Github\cosrec\url')  #User editable section
 
     prd_dict = {}
     for fname in files:
@@ -114,5 +114,5 @@ def Collecting_data(My_part, divide, Starting_point=Starting_point):
 info_dataset, component_dataset = Collecting_data(My_part, divide)
 
 # 결과 저장 (덮어쓰기 아님, 이어쓰기)
-info_dataset.to_csv(r'C:\Users\leeks\OneDrive\바탕 화면\csv\Product_Information.csv', index=False, mode='a', header=False) #User editable section
-pd.DataFrame(component_dataset).to_csv(r'C:\Users\leeks\OneDrive\바탕 화면\csv\Ingredients_list.csv', index=False, mode='a', header=False)  #User editable section
+info_dataset.to_csv(r"C:\Users\user\Desktop\product_info_csv\Product_Information.csv", index=False, mode='a', header=False) #User editable section
+pd.DataFrame(component_dataset).to_csv(r"C:\Users\user\Desktop\product_ingredients\Ingredients_list.csv", index=False, mode='a', header=False)  #User editable section1
